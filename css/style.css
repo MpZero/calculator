@@ -1,3 +1,24 @@
 body {
-  background-color: brown;
+  background-color: rgb(70, 66, 66);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px 0;
+  margin: 0;
+  text-align: center;
+}
+#display {
+  background-color: aliceblue;
+height: 30px;
+width:fit-content;
+}
+
+div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+button {
+  height: 60px;
+  width: 60px;
+  margin: 0px;
 }
