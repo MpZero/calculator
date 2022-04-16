@@ -1,18 +1,23 @@
 let num1 = 5
 let num2 = 5
-function add() {
-return num1 + num2
+
+function add(a, b) {
+return a + b
 }
 
-function subtract() {
-  return num1 - num2
+function subtract(a, b) {
+  return a - b
 }
 
-function multiply() {
-  return num1 * num2
+function multiply(a, b) {
+  return a * b
 }
 
-function divide() {
-  return num1 / num2
+function divide(a, b) {
+  return a / b
 }
 
+function operate() {
+  return add(num1, num2)
+  //change "add" for button later
+}
