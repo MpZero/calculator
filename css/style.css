@@ -19,30 +19,32 @@ h1 {
   border-radius: 10px;
   padding: 2px;
   margin: 0 auto;
-  height: 450px;
+  height: 600px;
   width: 450px;
   justify-content: center;
   align-items: center;
   min-width: auto;
   min-height: auto;
   grid-gap: 2px;
-  
- 
 }
+/* #clear,
+#delete {  
+} */
 #displayNum {
-/* grid-area: header header; */
-box-sizing: border-box;
-width: 100%;
+  /* grid-area: header header; */
+  box-sizing: border-box;
+  width: 100%;
 
-background-color: aliceblue;
-border: 2px solid black;
-/* margin-bottom: auto; */
-margin-bottom: 0px;
-height: 80px; 
- width: 450px;
- text-align: end;
+  background-color: aliceblue;
+  border: 2px solid black;
+  /* margin-bottom: auto; */
+  margin-bottom: 0px;
+  height: 80px;
+  width: 450px;
+  text-align: end;
 }
-  #calcBtn {
+
+#calcBtn {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -57,4 +59,3 @@ button {
   height: 80px;
   width: 80px;
 }
-
