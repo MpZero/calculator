@@ -6,22 +6,40 @@ let num1 = ""
 let num2 = ""
 let op = ""
 let result = ""
+let decimal = ""
 
 function add() {
- result =parseInt(num1) + parseInt(num2);
- displayValue.textContent = result
+  result = parseInt(num1) + parseInt(num2);
+  displayValue.textContent = result
+  num1 = result
+  num2 = ""
+  op = ""
 }
 
 function subtract() {
-  console.log(parseInt(num1) - parseInt(num2));
+  result = parseInt(num1) - parseInt(num2);
+  displayValue.textContent = result
+  num1 = result
+  num2 = ""
+  op = ""
+
 }
 
 function multiply() {
-  console.log(parseInt(num1) * parseInt(num2));
+  result = parseInt(num1) * parseInt(num2);
+  displayValue.textContent = result
+  num1 = result
+  num2 = ""
+  op = ""
+
 }
 
 function divide() {
-  console.log(parseInt(num1) / parseInt(num2));
+  result = parseInt(num1) / parseInt(num2);
+  displayValue.textContent = result
+  num1 = result
+  num2 = ""
+  op = ""
 }
 
 function operate() {
@@ -55,10 +73,18 @@ btnNum.forEach((button) => {
 
 btnOp.forEach((button) => {
   button.addEventListener("click", () => {
-      // console.log(op = button.textContent);
+    // console.log(op = button.textContent);
+    if (op === "") {
       op = button.textContent;
-      displayValue.textContent = num1 + button.textContent;
-        })
+      displayValue.textContent = num1 + op;
+    } else if (op !== "") {
+      operate()
+      op = button.textContent;
+      displayValue.textContent = num1 + op;
+    // } else if (op === ".") {
+      // op = button.textContent;
+    }
+  });
 });
 
 btnMisc.forEach((button) => {
@@ -70,6 +96,10 @@ btnMisc.forEach((button) => {
       return clear()
     } else if (misc == "DELETE") {
       return deleteChar()
+    // } else if (decimal != ".") {
+    //   console.log(num1 = num1 + decimal)
+    //   displayValue.textContent = num1 + decimal
+    //   decimal = "."
     }
   });
 });
@@ -81,21 +111,13 @@ function clear() {
   displayValue.textContent = ""
 }
 
+// function deleteChar() {
+//   // let result = num1 + op + num2
+//   let text = displayValue.textContent
+//   text = text.substring(text.length -1);
+  //  console.log(text)
+  // return result.slice(-1)
+// }
 // function switchNum() {
   
 // }
-
-// function deleteChar() {
-
-// }
- //create function that stores the value of the numbers
- //pass that value to the display
-
- //create function that adds event listeners to all buttons
- //when button is clicked call its value
-
- //el usuario presiona un boton
- //el valor del boton se guarda en una variable y se visualiza en la pantalla
- //cuando el usuario presiona un operador, este se guarda
-
- //
