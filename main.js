@@ -11,6 +11,7 @@ let decimal = ""
 function add() {
   result = parseInt(num1) + parseInt(num2);
   displayValue.textContent = result
+  checkZero()
   num1 = result
   num2 = ""
   op = ""
@@ -19,6 +20,7 @@ function add() {
 function subtract() {
   result = parseInt(num1) - parseInt(num2);
   displayValue.textContent = result
+  checkZero()
   num1 = result
   num2 = ""
   op = ""
@@ -28,6 +30,7 @@ function subtract() {
 function multiply() {
   result = parseInt(num1) * parseInt(num2);
   displayValue.textContent = result
+  checkZero()
   num1 = result
   num2 = ""
   op = ""
@@ -37,14 +40,25 @@ function multiply() {
 function divide() {
   result = parseInt(num1) / parseInt(num2);
   displayValue.textContent = result
+  checkZero()
   num1 = result
   num2 = ""
   op = ""
 }
 
+//check if the result is 0 then the next number you press should replace 0.
+function checkZero() {
+  if (result == 0) {
+    result = ""
+  }
+}
+
 function operate() {
   if (op !== "" && num1 !== "" && num2 == "") {
     return
+  }
+  if (num1 == 0 && num2 == "") {
+    clear()
   }
   if (op == "/") {
     return divide()
