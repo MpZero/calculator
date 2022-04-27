@@ -43,6 +43,9 @@ function divide() {
 }
 
 function operate() {
+  if (op !== "" && num1 !== "" && num2 == "") {
+    return
+  }
   if (op == "/") {
     return divide()
   }
@@ -77,12 +80,15 @@ btnOp.forEach((button) => {
     if (op === "") {
       op = button.textContent;
       displayValue.textContent = num1 + op;
-    } else if (op !== "") {
+    } else if (op !== "" && num1 != "" && num2 == "") {
+      op = button.textContent;
+      displayValue.textContent = num1 + op;
+    } else if (op !== "" && num2 != "") {
       operate()
       op = button.textContent;
       displayValue.textContent = num1 + op;
-    // } else if (op === ".") {
-      // op = button.textContent;
+    // } else if (op !== "" && num1 !== "") {
+    //   console.log("hey")
     }
   });
 });
@@ -100,6 +106,8 @@ btnMisc.forEach((button) => {
     //   console.log(num1 = num1 + decimal)
     //   displayValue.textContent = num1 + decimal
     //   decimal = "."
+    // } else {
+    //   console.log(ERROR)
     }
   });
 });
