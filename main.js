@@ -74,12 +74,15 @@ function operate() {
   }
 }
 
+
+// -54 inputs -5-4, FIX LATER
 btnNum.forEach((button) => {
   button.addEventListener("click", () => {
     if ( op !== "" && num1 === "" && op == "-") {
       num1 += button.textContent;
       num1 = op + num1;
       displayValue.textContent = num1;
+      op = ""
     } else if (op === "") {
       num1 += button.textContent;
       displayValue.textContent = num1
