@@ -11,8 +11,8 @@ let decimal = ""
 function add() {
   result = parseInt(num1) + parseInt(num2);
   displayValue.textContent = result
-  checkZero()
   num1 = result
+  checkZero()
   num2 = ""
   op = ""
 }
@@ -24,14 +24,13 @@ function subtract() {
   num1 = result
   num2 = ""
   op = ""
-
 }
 
 function multiply() {
   result = parseInt(num1) * parseInt(num2);
   displayValue.textContent = result
-  checkZero()
   num1 = result
+  checkZero()
   num2 = ""
   op = ""
 
@@ -40,8 +39,8 @@ function multiply() {
 function divide() {
   result = parseInt(num1) / parseInt(num2);
   displayValue.textContent = result
-  checkZero()
   num1 = result
+  checkZero()
   num2 = ""
   op = ""
 }
@@ -49,7 +48,8 @@ function divide() {
 //check if the result is 0 then the next number you press should replace 0.
 function checkZero() {
   if (result == 0) {
-    result = ""
+    num1 = 0
+    displayValue.textContent = "0"
   }
 }
 
@@ -76,14 +76,16 @@ function operate() {
 
 btnNum.forEach((button) => {
   button.addEventListener("click", () => {
-    if ( op === "") {
+    if ( op !== "" && num1 === "" && op == "-") {
       num1 += button.textContent;
+      num1 = op + num1;
       displayValue.textContent = num1;
-      // console.log(num1)
-    } else {
+    } else if (op === "") {
+      num1 += button.textContent;
+      displayValue.textContent = num1
+    } else if (op !== "") {
       num2 += button.textContent;
       displayValue.textContent = num1 + op + num2
-      // console.log(num2)
     }
     });
   });
@@ -101,8 +103,6 @@ btnOp.forEach((button) => {
       operate()
       op = button.textContent;
       displayValue.textContent = num1 + op;
-    // } else if (op !== "" && num1 !== "") {
-    //   console.log("hey")
     }
   });
 });
