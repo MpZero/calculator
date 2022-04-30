@@ -7,42 +7,58 @@ let num2 = ""
 let op = ""
 let result = ""
 let decimal = ""
+let decimal2 = ""
 
 function add() {
-  result = parseInt(num1) + parseInt(num2);
+  result = parseFloat(num1) + parseFloat(num2);
+  roundResult(result)
   displayValue.textContent = result
   num1 = result
   checkZero()
   num2 = ""
   op = ""
+  decimal = ""
+  decimal2 = ""
 }
 
 function subtract() {
-  result = parseInt(num1) - parseInt(num2);
+  result = parseFloat(num1) - parseFloat(num2);
+  roundResult(result)
   displayValue.textContent = result
   checkZero()
   num1 = result
   num2 = ""
   op = ""
+  decimal = ""
+  decimal2 = ""
 }
 
 function multiply() {
-  result = parseInt(num1) * parseInt(num2);
+  result = parseFloat(num1) * parseFloat(num2);
+  roundResult(result)
   displayValue.textContent = result
   num1 = result
   checkZero()
   num2 = ""
   op = ""
-
+  decimal = ""
+  decimal2 = ""
 }
 
 function divide() {
-  result = parseInt(num1) / parseInt(num2);
+  result = parseFloat(num1) / parseFloat(num2);
+  roundResult(result)
   displayValue.textContent = result
   num1 = result
   checkZero()
   num2 = ""
   op = ""
+  decimal = ""
+  decimal2 = ""
+}
+
+function roundResult() {
+  result = Math.round(result * 100) / 100;
 }
 
 //check if the result is 0 then the next number you press should replace 0.
@@ -75,7 +91,6 @@ function operate() {
 }
 
 
-// -54 inputs -5-4, FIX LATER
 btnNum.forEach((button) => {
   button.addEventListener("click", () => {
     if ( op !== "" && num1 === "" && op == "-") {
@@ -87,6 +102,7 @@ btnNum.forEach((button) => {
       num1 += button.textContent;
       displayValue.textContent = num1
     } else if (op !== "") {
+      // decimal = ""
       num2 += button.textContent;
       displayValue.textContent = num1 + op + num2
     }
@@ -119,12 +135,14 @@ btnMisc.forEach((button) => {
       return clear()
     } else if (misc == "DELETE") {
       return deleteChar()
-    // } else if (decimal != ".") {
-    //   console.log(num1 = num1 + decimal)
-    //   displayValue.textContent = num1 + decimal
-    //   decimal = "."
-    // } else {
-    //   console.log(ERROR)
+    } else if (misc == "." && decimal == "" && op == "") {
+      decimal = "."
+     num1 = num1 + misc
+      displayValue.textContent = num1
+    } else if (misc == "." && decimal2 == "" && op != "") {
+      decimal2 = "."
+      num2 = num2 + misc
+      displayValue.textContent = num1 + op + num2
     }
   });
 });
@@ -134,6 +152,8 @@ function clear() {
   num2 = ""
   op = ""
   displayValue.textContent = ""
+  decimal = ""
+  decimal2 = ""
 }
 
 // function deleteChar() {
