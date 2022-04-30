@@ -122,7 +122,7 @@ btnOp.forEach((button) => {
       operate()
       op = button.textContent;
       displayValue.textContent = num1 + op;
-    }
+    } 
   });
 });
 
@@ -147,6 +147,20 @@ btnMisc.forEach((button) => {
   });
 });
 
+
+function deleteChar() {
+  if (num1 != "" && op == "" && num2 == ""){
+  num1 = num1.slice(0, -1)
+  displayValue.textContent = num1
+} else if (num2 != "" && op != "" && num1 != "") {
+  num2 = num2.slice(0, -1)
+  displayValue.textContent = num1 + op + num2
+} else if (op != "" && num2 == "") {
+  op = op.slice(0, -1);
+  displayValue.textContent = num1 + op
+}
+}
+
 function clear() {
   num1 = ""
   num2 = ""
@@ -155,14 +169,3 @@ function clear() {
   decimal = ""
   decimal2 = ""
 }
-
-// function deleteChar() {
-//   // let result = num1 + op + num2
-//   let text = displayValue.textContent
-//   text = text.substring(text.length -1);
-  //  console.log(text)
-  // return result.slice(-1)
-// }
-// function switchNum() {
-  
-// }
